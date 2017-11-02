@@ -1,20 +1,12 @@
-# Project Repository
+# Problem Statement:
+We are analyzing the effect of restraunts and eateries on Airbnb listings in New York City. We have chosen New York City as it is one of the largest and most popular tourist destinations in the world with a large amount of Airbnb listings.
 
-This homework is done as a group. You will be creating your team repository.
+# Questions:
+We are looking to answer the following questions using the data:
+* Is there a correlation between the number of restraunts in a particular area and the number of Airbnb listings in that area?
+* How does the price of Airbnb listings vary according to the presence of restraunts in that region?
 
-You should do the following:
-- Create a repository for your team with a license and a .gitignore file.
-- Construct an initial README file that describes the problem you are addressing (but not necessarily how you will address it). Include at least one image and a link to another web page.
-- Create a Docs folder, and in that folder create a file named data.md. The document should have the following sections:
-  - Requirements. List the kind of information required to answer the questions described in the README file.
-  - Sources. List the data sets that you are considering using, their content, and their availability.
-  - Evaluation. The core part of this section is a table that analyzes the choice of data. The columns of the table are data sets described in the "Data" section. The rows are requirements of the data based on the questions you want to answer. You should complete the cells in the table.
-  
-Each person in the team should make at least one commit to the repository.
+# Data Sources:
+The data we are using comes from the [Airbnb website](http://insideairbnb.com/get-the-data.html) and the restraunt data is pulled from the [NYC restraunt database](https://mgrimshaw.carto.com/tables/nytimes_nyc_restaurants/public) published by Miles Grimshaw.
 
-Rubric. Items 1-4 are group grades. Item 5 is an individual grade.
-1. Created repository with all team members as collaborators, and README file describes the questions addressed by the project. (1 pt)
-2. data.md has a Requirements section with appropriate content. (1 pt)
-3. data.md has a Sources section with appropriate content. (1 pt)
-4. data.md has a Evaluation section with appropriate content. (1 pt)
-5. You made a commit to the repository. (1 pt)
+![alt text](http://www.hotelnewsnow.com/Media/Default/Legacy//FeatureImages/airbnb_newyork.jpg "Image 1")
