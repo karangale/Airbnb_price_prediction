@@ -8,10 +8,6 @@ Our analysis focusses on understanding the presence of restaurants on Airbnb lis
 > - For analyzing the variation in the prices of the listings, we also need price as a column in the Airbnb listings dataset.
 
 # Sources:
-
-# Evaluation:
-=======
-## Sources:
 We have two databases that we plan to use for this project.
 
 | Dataset                      | Content                                                                                              | Availability                                                                                           | Source                                                                                                 |
@@ -19,7 +15,7 @@ We have two databases that we plan to use for this project.
 | listings.csv.gz              | Detailed Airbnb listings for New York City. It is 149 MB in size and has 41,188 rows and 95 columns  | This data is publicly available information from the Airbnb website under a  Creative Commons Liscence | http://insideairbnb.com/get-the-data.html                 |
 | NYC Restaurants Geocoded.csv | This contains a list of restaurants in  New York City with their geo-coded locations                 | This data has been made available by  Miles Grimshaw on his website                                    | http://milesgrimshaw.com/nyc-restaurant-database/ |
 
-## Evaluation:
+# Evaluation:
 |                                                                                             | AirBnb Listings | NYC Restaurant Data |
 |---------------------------------------------------------------------------------------------|:---------------:|:--------------------:|
 | Is there a correlation between the no. of restaurants in NYC and the no. of Airbnb listings |       Used      |                Used |
