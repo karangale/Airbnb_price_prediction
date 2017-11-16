@@ -24,8 +24,8 @@ longitude
 	* Read the two csv files into dataframes using pandas
 ```
 Pseudo Code:
-Import pandas as pd
 
+Import pandas as pd
 airbnb_df = read listings data
 restaurant_df = read restaurant data
 ```
@@ -37,12 +37,13 @@ restaurant_df = read restaurant data
 * **How it works:**
 ```
 Pseudo Code:
+
 * Use the groupby operation within pandas to groupby on the zip code variable within the dataframe
 * restaurants_count_df = cleaned_restaurants_df.groupby(‘zipcode’).count()
 * return restaurants_count_df
 ```
 
-### plotmap()
+### plot_map()
 * **What it does:** Maps all restaurants and Airbnb listings according to their location coordinates
 * **Inputs:**
 	* airbnb_df.latitude
@@ -53,6 +54,7 @@ Pseudo Code:
 * **How it works:** Uses plotly library and Google Maps’ API to plot Airbnb listings as well as restaurants.
 ```
 Pseudo Code:
+
 * Import bokeh library
 * From bokeh.models import GMapPlot to plot Google Maps as our background
 * Plot map and define the latitude and longitude range for NYC
@@ -60,7 +62,7 @@ Pseudo Code:
 * Add other tools so the user can control and interact with the map
 ```
 
-### Name: predict_price()
+### predict_price()
 * **What it does:** Makes a prediction of the price of an Airbnb listing based on certain parameters.
 * **Inputs:** 
 	* Number of beds, baths of the Airbnb listing
@@ -70,7 +72,8 @@ Pseudo Code:
 * How it works: Uses the model developed using supervised learning on existing data to make a prediction for the cost of the Airbnb listing based on the input values of beds and baths, number of restaurants in the region.
 ```
 Pseudo Code:
-	* Perform a sanity check on the input values (make sure they are positive, etc)
-	* Pass the input values to the trained model
-	* Return the value obtained from the trained model and render the value on the UI
+
+* Perform a sanity check on the input values (make sure they are positive, etc)
+* Pass the input values to the trained model
+* Return the value obtained from the trained model and render the value on the UI
 ```
