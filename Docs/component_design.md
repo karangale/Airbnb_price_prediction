@@ -24,8 +24,7 @@ longitude
 * **Outputs:**
 	* airbnb_df
 	* restaurant_df
-* **How it works:**
-* Read the two csv files into dataframes using pandas
+* **How it works:** Read the two csv files into dataframes using pandas
 ```
 Pseudo Code:
 
