@@ -37,10 +37,9 @@ restaurant_df = read restaurant data
 * **How it works:**
 ```
 Pseudo Code:
-
-	* Use the groupby operation within pandas to groupby on the zip code variable within the dataframe
-	* restaurants_count_df = cleaned_restaurants_df.groupby(‘zipcode’).count()
-	* return restaurants_count_df
+* Use the groupby operation within pandas to groupby on the zip code variable within the dataframe
+* restaurants_count_df = cleaned_restaurants_df.groupby(‘zipcode’).count()
+* return restaurants_count_df
 ```
 
 ### plotmap()
@@ -59,4 +58,19 @@ Pseudo Code:
 * Plot map and define the latitude and longitude range for NYC
 * Plot the data points from the airbnb and restaurant dataframes as different colored circles
 * Add other tools so the user can control and interact with the map
+```
+
+### Name: predict_price()
+* **What it does:** Makes a prediction of the price of an Airbnb listing based on certain parameters.
+* **Inputs:** 
+	* Number of beds, baths of the Airbnb listing
+	* Number of restaurants in the region
+	* Trained model based on existing data
+* Output: A floating point value describing the projected cost of the Airbnb listing based on the input parameters.
+* How it works: Uses the model developed using supervised learning on existing data to make a prediction for the cost of the Airbnb listing based on the input values of beds and baths, number of restaurants in the region.
+```
+Pseudo Code:
+	* Perform a sanity check on the input values (make sure they are positive, etc)
+	* Pass the input values to the trained model
+	* Return the value obtained from the trained model and render the value on the UI
 ```
