@@ -37,7 +37,7 @@ restaurant_df = read restaurant data
 * **What it does:** Counts number of restaurants in each zip code in New York City
 * **Inputs:** The restaurant dataframe created as part of clean_data() step
 * **Outputs:** A dataframe which gives the count of restaurant in each zip code
-* **How it works:**
+* **How it works:** Uses the pandas groupby function to count the restaurants in each zip code
 ```
 Pseudo Code:
 
