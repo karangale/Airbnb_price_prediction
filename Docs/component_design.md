@@ -9,6 +9,10 @@ This component is relevant to all use cases in our functional specification docu
 ### Plotting the Airbnb and restaurant locations on a map of New York City:
 This component will be used to address the 1st and 2nd use cases in our functional design specification. This component will be helpful in visualizing the distribution of various Airbnb listings and restaurants in New York City & will help the user in navigating the different features which might be of interest to him/her.
 
+### Predict the price of an Airbnb Listing:
+This component will address the 3rd use case mentioned in our functional design specification.
+Here, a price will be predicted for an Airbnb listing based on the model trained using Machine Learning Algorithms and user provided inputs.
+
 ## Component Specification
 ### clean_data()
 * **What it does:** This component would be used to clean the restaurants as well as the Airbnb listing data by retaining only the relevant features for use in our analysis.
@@ -21,11 +25,11 @@ longitude
 	* airbnb_df
 	* restaurant_df
 * **How it works:**
-	* Read the two csv files into dataframes using pandas
+* Read the two csv files into dataframes using pandas
 ```
 Pseudo Code:
 
-Import pandas as pd
+import pandas as pd
 airbnb_df = read listings data
 restaurant_df = read restaurant data
 ```
@@ -68,8 +72,8 @@ Pseudo Code:
 	* Number of beds, baths of the Airbnb listing
 	* Number of restaurants in the region
 	* Trained model based on existing data
-* Output: A floating point value describing the projected cost of the Airbnb listing based on the input parameters.
-* How it works: Uses the model developed using supervised learning on existing data to make a prediction for the cost of the Airbnb listing based on the input values of beds and baths, number of restaurants in the region.
+* **Outputs:** A floating point value describing the projected cost of the Airbnb listing based on the input parameters.
+* **How it works:** Uses the model developed using supervised learning on existing data to make a prediction for the cost of the Airbnb listing based on the input values of beds and baths, number of restaurants in the region.
 ```
 Pseudo Code:
 
