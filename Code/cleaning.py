@@ -20,3 +20,11 @@ def clean_airbnb(airbnb_data_req):
     airbnb_data_req = airbnb_data_req[airbnb_data_req['property_type'] == 'Apartment']
     
     return airbnb_data_req
+
+def clean_restraunts_geo(rest_geo_df):
+    rest_geo_df.dropna()
+    rest_geo = rest_geo[rest_geo['Latitude']<41]
+    rest_geo = rest_geo[rest_geo['Longitude']<-73.5]
+    rest_geo = rest_geo[rest_geo['Longitude']>-75]
+
+    return rest_geo
