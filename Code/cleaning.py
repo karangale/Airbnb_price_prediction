@@ -1,4 +1,14 @@
+def splitZip(zipcode):
+    zips = zipcode.split("-")
+    zipsDot = zips[0].split(".")
+    zipsN = zipsDot[0].split("\n")
+    return zipsN[0]
+    
 def clean_airbnb(airbnb_data_req):
+    columns_interest_airbnb = ['street', 'neighbourhood','zipcode', 'latitude', 'longitude', 'property_type', 'accommodates', 
+                               'bathrooms', 'bedrooms', 'beds', 'price', 'minimum_nights', 'maximum_nights', 
+                               'number_of_reviews', 'neighbourhood_group_cleansed']
+    airbnb_data_req = airbnb_data_req[columns_interest_airbnb]
     index_drop = airbnb_data_req[airbnb_data_req['zipcode'].isnull()].index.tolist()
     airbnb_data_req = airbnb_data_req.drop(index_drop)
     airbnb_data_req = airbnb_data_req.reset_index(drop = True)
@@ -21,8 +31,8 @@ def clean_airbnb(airbnb_data_req):
     
     return airbnb_data_req
 
-def clean_restraunts_geo(rest_geo_df):
-    rest_geo_df.dropna()
+def clean_restraunts_geo(rest_geo):
+    rest_geo.dropna()
     rest_geo = rest_geo[rest_geo['Latitude']<41]
     rest_geo = rest_geo[rest_geo['Longitude']<-73.5]
     rest_geo = rest_geo[rest_geo['Longitude']>-75]
