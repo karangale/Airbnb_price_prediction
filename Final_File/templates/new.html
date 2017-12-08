@@ -65,7 +65,7 @@
     <ul>
 	  <li><a href="{{url_for('main')}}">Home</a></li>
       <li><a href='#' onclick =setURL("{{ url_for('airbnb_restaurant') }}")>Map the Listings</a></li>
-      <li><a onclick=setURL("google.com")>Predict Prices</a></li>
+      <li><a href='#' onclick=setURL("{{ url_for('ML_model') }}")>Predict Prices</a></li>
     </ul>
   </header>
   <iframe id="iframe">
