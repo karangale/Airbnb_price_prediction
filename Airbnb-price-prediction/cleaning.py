@@ -75,7 +75,6 @@ def clean_airbnb_map(airbnb_data_req):
     airbnb_data_req["price"] = airbnb_data_req["price"].astype(float)
 
     airbnb_data_req["zipcode"] = airbnb_data_req["zipcode"].astype(str)
-
     airbnb_data_req["zipcode"] = airbnb_data_req["zipcode"].apply(splitZip)
     airbnb_data_req = airbnb_data_req[airbnb_data_req['zipcode']!='1m']
 
