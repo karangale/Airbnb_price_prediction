@@ -15,16 +15,16 @@ plt.style.use('ggplot')
 airbnb_data = pd.read_csv("listings.csv", encoding='latin-1')
 
 
-column_names = ["id", "host_listings_count", "host_total_listings_count", "host_has_profile_pic", "host_identity_verified", 
+column_names = ["id", "host_listings_count", "host_total_listings_count", "host_has_profile_pic", "host_identity_verified",
             "street", "neighbourhood", "city", "state", "zipcode", "market", "country_code", "country", "latitude", "longitude", "property_type",
              "room_type", "accommodates", "bathrooms", "bedrooms", "beds", "bed_type", "price", "cleaning_fee", "extra_people", "requires_license",
-             "minimum_nights", "maximum_nights",  "has_availability", "availability_30", "availability_60", "number_of_reviews", "review_scores_value", 
-             "instant_bookable", "is_business_travel_ready", "cancellation_policy", "require_guest_profile_picture", "require_guest_phone_verification", 
+             "minimum_nights", "maximum_nights",  "has_availability", "availability_30", "availability_60", "number_of_reviews", "review_scores_value",
+             "instant_bookable", "is_business_travel_ready", "cancellation_policy", "require_guest_profile_picture", "require_guest_phone_verification",
              "calculated_host_listings_count", "reviews_per_month"]
 
 
-columns_interest_airbnb = ['street', 'neighbourhood','zipcode', 'latitude', 'longitude', 'property_type', 'accommodates', 
-                               'bathrooms', 'bedrooms', 'beds', 'price', 'minimum_nights', 'maximum_nights', 
+columns_interest_airbnb = ['street', 'neighbourhood','zipcode', 'latitude', 'longitude', 'property_type', 'accommodates',
+                               'bathrooms', 'bedrooms', 'beds', 'price', 'minimum_nights', 'maximum_nights',
                                'number_of_reviews']
 
 airbnb_data_req = airbnb_data[column_names]
@@ -57,7 +57,7 @@ def oneHotEnconde(df):
 
 def binaryEncode(df):
 
-    cols = ["host_has_profile_pic", "host_identity_verified", "requires_license", "instant_bookable", "is_business_travel_ready", 
+    cols = ["host_has_profile_pic", "host_identity_verified", "requires_license", "instant_bookable", "is_business_travel_ready",
             "require_guest_profile_picture", "require_guest_phone_verification"]
     for i in cols:
         df[i] = df[i].apply(lambda x: 1 if x =='y' else 0)
@@ -75,17 +75,17 @@ def clean_airbnb(airbnb_data_req):
     index_drop = airbnb_data_req[airbnb_data_req['zipcode'].isnull()].index.tolist()
     airbnb_data_req = airbnb_data_req.drop(index_drop)
     airbnb_data_req = airbnb_data_req.reset_index(drop = True)
-    
+
     airbnb_data_req["bathrooms"].fillna(0, inplace = True)
     airbnb_data_req["bedrooms"].fillna(0, inplace = True)
     airbnb_data_req["beds"].fillna(0, inplace = True)
     airbnb_data_req["neighbourhood"].fillna("", inplace = True)
     airbnb_data_req["bathrooms"].fillna(0, inplace = True)
-    
+
     airbnb_data_req["price"] = airbnb_data_req["price"].str.replace('$', '')
     airbnb_data_req["price"] = airbnb_data_req["price"].str.replace(',', '')
     airbnb_data_req["price"] = airbnb_data_req["price"].astype(float)
-    
+
     airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_fee"].str.replace('$', '')
     airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_fee"].str.replace(',', '')
     airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_fee"].astype(float)
@@ -95,10 +95,10 @@ def clean_airbnb(airbnb_data_req):
     airbnb_data_req["extra_people"] = airbnb_data_req["extra_people"].astype(float)
 
     airbnb_data_req["zipcode"] = airbnb_data_req["zipcode"].astype(str)
-    
+
     airbnb_data_req["zipcode"] = airbnb_data_req["zipcode"].apply(splitZip)
     airbnb_data_req= airbnb_data_req[airbnb_data_req['zipcode']!='1m']
-    
+
     airbnb_data_req = airbnb_data_req[airbnb_data_req['property_type'] == 'Apartment']
     airbnb_data_req = airbnb_data_req[airbnb_data_req['country_code']=="US"]
 
@@ -108,6 +108,7 @@ def clean_airbnb(airbnb_data_req):
 airbnb_data_req = binaryEncode(airbnb_data_req)
 # airbnb_data_req = oneHotEnconde(airbnb_data_req)
 airbnb_data_req = clean_airbnb(airbnb_data_req)
+airbnb_data_req.to_csv('out.csv')
 
 print(airbnb_data_req.columns)
 
