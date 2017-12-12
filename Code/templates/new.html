@@ -14,8 +14,8 @@
     }
 
 	footer {
-	  width = 100%;
-	  height = 5%;
+	  width: 100%;
+	  height: 5%;
 	  padding: 10px;
 	  text-align: center;
 	  color: white;
@@ -57,7 +57,6 @@
 	iframe{
 	  width: 100%;
 	  border: none;
-	  /*float: left;*/
 	  height: 450px;
 	}
 
@@ -81,7 +80,7 @@
     <ul>
 	  <li><a href="{{url_for('main')}}">Home</a></li>
       <li><a href='#' onclick =setURL("{{ url_for('airbnb_restaurant') }}")>Map the Listings</a></li>
-      <li><a href='#' onclick=setURL("{{ url_for('ML_model') }}")>Predict Prices</a></li>
+      <li><a href='#' onclick =setURL("{{ url_for('get_model_page') }}")>Map the Listings</a></li>
     </ul>
   </header>
   <iframe id="iframe">

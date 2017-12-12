@@ -30,7 +30,7 @@
             border: none;
             cursor: pointer;
             float: left;
-            margin-right: 1%
+            margin-left: 1%;
         }
 
         input[type=submit]:hover {
@@ -65,14 +65,14 @@
         <h3>To make a prediction please enter the following details:</h3>
         <div class="container">
             <form action="{{ url_for('ML_model') }}" method = "post">
-                <label for="n_rooms">Number of Rooms</label>
+                <label for="nrooms">Number of Rooms</label>
                 <input type="text" id="n_rooms" name = "n_rooms">
 
                 <label for="nbeds">Number of Beds</label>
                 <input type="text" id="nbeds" name = "nbeds">
 
                 <label for="naccommodates">Number of people accomodated</label>
-                <input type="text" id="naccommodates" name = "naccommodates"></br>
+                <input type="text" id="naccommodates" name = "naccomodates"></br>
 
                 <label for="nrestaurants">Number of restaurants in the vicinity</label>
                 <input type="text" id="nrestaurants" name = "nrestaurants">
@@ -91,13 +91,7 @@
                     <option value="Queens">Queens</option>
                     <option value="Staten_Island">Staten Island</option>
                 </select>
-
-                <div style = "float:left; width:100%; margin-bottom:1%">
-                    <input type="submit" value="Submit"></input>
-                    {% if prediction != null %}
-                        The predicted price for these parameters comes to: <strong> {{prediction}} </strong> &emsp;
-                    {% endif %}
-                </div>
+                <input type="submit" value="Submit"></input>
             </form>
         </div>
 
