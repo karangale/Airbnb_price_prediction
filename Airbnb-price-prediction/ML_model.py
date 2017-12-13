@@ -5,14 +5,10 @@ from sklearn import preprocessing
 from sklearn.metrics import r2_score
 from sklearn import linear_model
 from sklearn.linear_model import ElasticNet
-import geopy
-from geopy.distance import vincenty
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 plt.style.use('ggplot')
 
-
-airbnb_data = pd.read_csv("listings.csv", encoding='latin-1')
 
 column_names = ["id", "host_listings_count", "host_total_listings_count", "host_has_profile_pic", "host_identity_verified",
             "street", "neighbourhood", "city", "state", "zipcode", "market", "country_code", "country", "latitude", "longitude", "property_type",
@@ -26,8 +22,11 @@ columns_interest_airbnb = ['street', 'neighbourhood','zipcode', 'latitude', 'lon
                                'bathrooms', 'bedrooms', 'beds', 'price', 'minimum_nights', 'maximum_nights',
                                'number_of_reviews']
 
-airbnb_data_req = airbnb_data[column_names]
-prop_type= airbnb_data_req.groupby('property_type')['property_type'].count()
+
+def read_data():
+    airbnb_data = pd.read_csv("./Data/listings.csv", encoding='latin-1')
+    restaurant_data = pd.read_csv("./Data/rest_count.csv", encoding='latin-1')
+    return airbnb_data, restaurant_data
 
 
 def oneHotEnconde(df):
@@ -95,34 +94,26 @@ def clean_airbnb(airbnb_data_req):
 
     return airbnb_data_req
 
-
-airbnb_data_req = binaryEncode(airbnb_data_req)
-airbnb_data_req = clean_airbnb(airbnb_data_req)
-airbnb_data_req.to_csv('out.csv')
-
-print(airbnb_data_req.columns)
-
-grouped_zipcode = airbnb_data_req.groupby('zipcode')
-
-x_train = airbnb_data_req[['bedrooms','bathrooms','accommodates','beds','number_of_reviews', 'minimum_nights', 'maximum_nights', 
-                            'number_of_reviews', "host_has_profile_pic", "host_identity_verified", "requires_license", "instant_bookable", 
-                            "is_business_travel_ready", "require_guest_profile_picture", "require_guest_phone_verification"]]
-
-y_train = airbnb_data_req['price'].values
-
 reg=linear_model.LinearRegression()
-reg.fit(x_train, y_train)
-y_pred = reg.predict(x_train)
-print("Linear regression r squared", r2_score(y_train,y_pred), "\n")
 
 
-# reg1=ElasticNet()
-# reg1.fit(x_train, y_train)
-# y_pred1 = reg1.predict(x_train)
-# print("Elastic regression r squared", r2_score(y_train, y_pred1), "\n")
+def build_linear_regression_model():    
+    airbnb_data_req, restaurant_data = read_data()
+    airbnb_data_req = binaryEncode(airbnb_data_req)
+    airbnb_data_req = clean_airbnb(airbnb_data_req)
+
+    airbnb_data_req = airbnb_data_req.join(restaurant_data, on="id", how = "inner")
+    x_train = airbnb_data_req[['bedrooms', 'beds', 'accommodates', "rest_count", 'number_of_reviews', 'minimum_nights', 'maximum_nights']]
+    y_train = airbnb_data_req['price'].values
+    reg.fit(x_train, y_train)
+    y_pred = reg.predict(x_train)
+    print("Linear regression r squared", r2_score(y_train,y_pred), "\n")
 
 
-# reg2=linear_model.Lasso(alpha=.16)
-# reg2.fit(x_train, y_train)
-# y_pred2 = reg2.predict(x_train)
-# print("Lasso regression r squared", r2_score(y_train, y_pred1), "\n")
+def predict_price(data):
+    build_linear_regression_model()
+    return reg.predict(data)
+
+
+if __name__ == '__main__':
+    build_linear_regression_model()
