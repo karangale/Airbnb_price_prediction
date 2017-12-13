@@ -64,40 +64,39 @@
         
         <h3>To make a prediction please enter the following details:</h3>
         <div class="container">
-            <form action="{{ url_for('ML_model') }}" method = "post">
+            <form action="{{ url_for('render_prediction_module') }}" method = "post">
+
                 <label for="n_rooms">Number of Rooms</label>
-                <input type="text" id="n_rooms" name = "n_rooms">
+                <input type="text" id="n_rooms" name = "n_rooms" value = "{{n_rooms}}">
 
                 <label for="nbeds">Number of Beds</label>
-                <input type="text" id="nbeds" name = "nbeds">
+                <input type="text" id="nbeds" name = "nbeds" value = "{{nbeds}}">
 
                 <label for="naccommodates">Number of people accomodated</label>
-                <input type="text" id="naccommodates" name = "naccommodates"></br>
+                <input type="text" id="naccommodates" name = "naccommodates" value = "{{naccommodates}}">
 
                 <label for="nrestaurants">Number of restaurants in the vicinity</label>
-                <input type="text" id="nrestaurants" name = "nrestaurants">
+                <input type="text" id="nrestaurants" name = "nrestaurants" value = "{{nrestaurants}}">
 
                 <label for="nreviews">Number of Reviews</label>
-                <input type="text" id="nreviews" name = "nreviews">
+                <input type="text" id="nreviews" name = "nreviews" value = "{{nreviews}}">
 
                 <label for="nrating">Rating (out of 10)</label>
-                <input type="text" id="nrating" name = "nrating"></br>
+                <input type="text" id="nrating" name = "nrating" value = "{{nrating}}">
 
-                <label for="region">Region</label>
-                <select id="region" name="region">
-                    <option value="Bronx">Bronx</option>
-                    <option value="Manhattan">Manhattan</option>
-                    <option value="Brooklyn">Brooklyn</option>
-                    <option value="Queens">Queens</option>
-                    <option value="Staten_Island">Staten Island</option>
-                </select>
+                <label for="min_nights">Minimum Number of nights</label>
+                <input type="text" id="min_nights" name = "min_nights" value = "{{min_nights}}">
+
+                <label for="max_nights">Maximum number of nights</label>
+                <input type="text" id="max_nights" name = "max_nights" value = "{{max_nights}}"></br>
 
                 <div style = "float:left; width:100%; margin-bottom:1%">
                     <input type="submit" value="Submit"></input>
                     {% if prediction != null %}
-                        The predicted price for these parameters comes to: <strong> {{prediction}} </strong> &emsp;
+                        print("\n\n\n")
+                        The predicted price for these parameters comes to: <strong> ${{prediction}} </strong> &emsp;
                     {% endif %}
-                </div>
+                </div>                
             </form>
         </div>
 

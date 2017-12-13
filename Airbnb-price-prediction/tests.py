@@ -29,14 +29,14 @@ class TestCleaningFunctions(unittest.TestCase):
 
     def test_clean_airbnb(self):
         final_shape = (36987, 17)
-        fileDetails = pd.read_csv("../Data/listings.csv")
+        fileDetails = pd.read_csv("./Data/listings.csv")
         final_df = clean_airbnb(fileDetails)
         self.assertEqual(final_df.shape, final_shape)
 
     def test_clean_restaurants_go(self):
         final_shape = (24941, 6)
         fileDetails = pd.read_csv(
-            "../Data/NYC Restaurants Geocoded - Sheet1.csv")
+            "./Data/NYC Restaurants Geocoded - Sheet1.csv")
         final_df = clean_restraunts_geo(fileDetails)
         self.assertEqual(final_df.shape, final_shape)
 
