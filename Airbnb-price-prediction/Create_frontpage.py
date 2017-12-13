@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request
-import ML_model as model
+import ml_model as model
 import numpy as np
+import math
 app = Flask(__name__)
 
 
@@ -73,10 +74,12 @@ def render_prediction_module():
             max_nights = float(max_nights)
     
     prediction = model.predict_price(np.array([[n_rooms, nbeds, naccommodates, nrestaurants, nreviews, min_nights, max_nights]]))
+    prediction_final = prediction[0]
+    prediction_final = math.ceil(prediction_final*100)/100
     return render_template('ML_model.html', n_rooms = n_rooms, nbeds = nbeds, naccommodates = naccommodates, 
                                             nrestaurants = nrestaurants,  nreviews = nreviews, nrating = nrating,
                                             min_nights = min_nights, max_nights = max_nights,
-                                            prediction = prediction[0])
+                                            prediction = prediction_final)
 
 
 if __name__=="__main__":

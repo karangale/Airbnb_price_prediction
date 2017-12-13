@@ -92,9 +92,8 @@
 
                 <div style = "float:left; width:100%; margin-bottom:1%">
                     <input type="submit" value="Submit"></input>
-                    {% if prediction != null %}
-                        print("\n\n\n")
-                        The predicted price for these parameters comes to: <strong> ${{prediction}} </strong> &emsp;
+                    {% if(prediction) %}
+                        <div style="margin-top:1%;float:left">The predicted price for these parameters is: <strong>${{prediction}}</strong></div> &emsp;
                     {% endif %}
                 </div>                
             </form>
