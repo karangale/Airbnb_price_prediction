@@ -57,4 +57,4 @@ def map_plot():
     map.add_child(folium.LayerControl())
 
     # Save the map to an html file
-    map.save('airbnb-restaurant.html')
+    map.save('/templates/airbnb-restaurant.html')
