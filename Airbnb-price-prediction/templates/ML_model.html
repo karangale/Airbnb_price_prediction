@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        label {
+            width: 32%;
+            float: left;
+            margin-top: 1%;
+            margin-bottom: 1%
+
+        }
+        input[type=text] {
+            float: left;
+            padding: 5px;
+            border-radius: 4px;
+            margin-right: 1%;
+            margin-top: 1%;
+            width: 12%;
+        }
+
+        h3{
+        	color: white;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            float: left;
+            margin-right: 1%
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        select {
+            float: left;
+            margin-bottom: 1%;
+            margin-top: 1%;
+            border-radius: 5px;
+            width: 13%;
+        }
+
+        .container {
+            background-color: #f2f2f2;
+            float: left;
+            padding-left: 1%;
+            width: 100%
+        }
+
+        form {
+            float: left;
+            width: 99%;
+            display: inline;
+        }
+
+        </style>
+    </head>
+    <body>
+        
+        <h3>To make a prediction please enter the following details:</h3>
+        <div class="container">
+            <form action="{{ url_for('ML_model') }}" method = "post">
+                <label for="n_rooms">Number of Rooms</label>
+                <input type="text" id="n_rooms" name = "n_rooms">
+
+                <label for="nbeds">Number of Beds</label>
+                <input type="text" id="nbeds" name = "nbeds">
+
+                <label for="naccommodates">Number of people accomodated</label>
+                <input type="text" id="naccommodates" name = "naccommodates"></br>
+
+                <label for="nrestaurants">Number of restaurants in the vicinity</label>
+                <input type="text" id="nrestaurants" name = "nrestaurants">
+
+                <label for="nreviews">Number of Reviews</label>
+                <input type="text" id="nreviews" name = "nreviews">
+
+                <label for="nrating">Rating (out of 10)</label>
+                <input type="text" id="nrating" name = "nrating"></br>
+
+                <label for="region">Region</label>
+                <select id="region" name="region">
+                    <option value="Bronx">Bronx</option>
+                    <option value="Manhattan">Manhattan</option>
+                    <option value="Brooklyn">Brooklyn</option>
+                    <option value="Queens">Queens</option>
+                    <option value="Staten_Island">Staten Island</option>
+                </select>
+
+                <div style = "float:left; width:100%; margin-bottom:1%">
+                    <input type="submit" value="Submit"></input>
+                    {% if prediction != null %}
+                        The predicted price for these parameters comes to: <strong> {{prediction}} </strong> &emsp;
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
+    </body>
+</html>
