@@ -13,15 +13,23 @@ The data we are using comes from the [Airbnb website](http://insideairbnb.com/ge
 
 ## Installation:
 1. Clone the git repository to a local location on your machine by downloading the zip file or typing the following in a terminal:
-`git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git`
+```
+git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git
+```
 
 2. Run the setup by typing the following:
-`python setup.py develop`
+```
+python setup.py develop
+```
 
-3. Run the visualization by typing the following url into your preferred web browser:
-`http:\\127.0.0.1:5000`
+3. Download the data files from the sources above and put them into the 'Data' folder in downloaded repository.
 
-4. Click on the links on the web page to open that particular module.
+4. Run the visualization by typing the following url into your preferred web browser:
+```
+http://127.0.0.1:5000
+```
+
+5. Click on the links on the web page to open that particular module.
 
 ## Using the Price Prediction Module:
 * Type in the specified parameters.
