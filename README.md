@@ -40,3 +40,10 @@ http://127.0.0.1:5000
 * Airbnb listings have blue markers with a house icon, while restaurants have red markers with a fork and knife icon.
 * If you want to only view airbnb listings or restaurants, you can click on the layers on the top right corner of the map to filter them.
 * Click on a particular listing to view more details and find a link to book that particular listing.
+
+<p align="center">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/blob/master/Examples/New%20York%20Map.PNG">
+ </p>
+ <p align="center">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/blob/master/Examples/airbnb_listing.PNG">
+</p>
