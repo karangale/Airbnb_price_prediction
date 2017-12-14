@@ -1,4 +1,4 @@
-# Predicting Airbnb listing prices based on the presence of restaurants Nearby:
+# Predicting Airbnb listing prices based on the presence of restaurants nearby:
 We are analyzing the effect of restaurants and eateries on Airbnb listings in New York City. We have chosen New York City as it is one of the largest and most popular tourist destinations in the world with a large amount of Airbnb listings.
 
 ## Questions:
@@ -22,10 +22,10 @@ git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git
 python setup.py install
 ```
 
-3. Download the Airbnb 'listings.csv' file:
+3. Download the Airbnb 'listings.csv.gz' file:
 [listings.csv.gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-10-02/data/listings.csv.gz)
 
-4. Extract the file and save it to the data folder in the following location:
+4. Extract the 'listings.csv' file and save it to the data folder in the following location:
 ```
 uwseds-group-team-star/airbnb_price_prediction/Data
 ```
@@ -60,6 +60,7 @@ http://127.0.0.1:5000
 8. Click on the links on the web page to open that particular module.
 
 ## Using the Price Prediction Module:
+* This module allows you to get the predicted price of an Airbnb listing depending on the input parameters.
 * Type in the specified parameters.
 * Click on 'Submit' button to view the predicted listing price.
 
@@ -68,7 +69,8 @@ http://127.0.0.1:5000
  </p>
  <p align="center">
 
-## Using the Visual Map:
+## Using the 'Mapping the Listings':
+* This module allows you to view the Airbnb listings on an interactive map.
 * You can choose to zoom in on various clusters of airbnb and restaurant listings by clicking on them.
 * Airbnb listings have blue markers with a house icon, while restaurants have red markers with a fork and knife icon.
 * If you want to only view airbnb listings or restaurants, you can click on the layers on the top right corner of the map to filter them.
