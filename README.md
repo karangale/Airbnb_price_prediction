@@ -19,7 +19,7 @@ git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git
 
 2. Open the main 'uwseds-group-team-star folder' and run the setup by typing the following:
 ```
-python setup.py develop
+python setup.py install
 ```
 
 3. Download the Airbnb 'listings.csv' file:
