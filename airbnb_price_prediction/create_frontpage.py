@@ -104,5 +104,5 @@ def render_prediction_module():
                            nrating=nrating, min_nights=min_nights,
                            max_nights=max_nights, prediction=prediction_final)
 
-if __name__ == '__main__':
+def main():
     app.run()
