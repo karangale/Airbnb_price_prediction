@@ -1,6 +1,7 @@
 """Machine learning model to predict airbnb prices."""
 import os
 import pandas as pd
+import urllib.request as request
 import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 from sklearn import linear_model
@@ -19,6 +20,21 @@ BINARY_ENCODE_COLUMNS = ["host_has_profile_pic", "host_identity_verified",
 LINEAR_REGRESSION_FEATURES = ['bedrooms', 'beds', 'accommodates', "rest_count",
                               'number_of_reviews', 'minimum_nights',
                               'maximum_nights']
+LISTINGS_URL = ("http://data.insideairbnb.com/united-states/ny/new-york-city/2017-10-02/data/listings.csv.gz")
+LISTINGS_FILE_NAME = "listings.csv"
+
+
+def get_data(url):  
+    print("Checking if the data is already present...")
+    current_dir_path = os.getcwd()
+    data_dir = os.path.join(current_dir_path, 'Data/')
+    if LISTINGS_FILE_NAME in os.listdir(data_dir):
+        return "Data file already present!"
+    else:
+        print("Dowloading the data...\n")
+        data_dir = os.path.join(data_dir, LISTINGS_FILE_NAME)
+        request.urlretrieve(url, data_dir)
+        return "Download Complete"
 
 
 def read_data(path, airbnb_file_name, restaurant_data_file_name):
@@ -80,7 +96,6 @@ def oneHotEncode(df, col_names):
                 df_1 = pd.concat([df, temp], axis=1)
         return df_1
     except:
-        print("Fail")
         return False
 
 
@@ -122,6 +137,9 @@ def build_linear_regression_model(feature_list):
     Returns:
         A model object with the data fit on the training data
     """
+
+    get_data(LISTINGS_URL)
+    
     try:
         current_dir_path = os.getcwd()
         airbnb_data_req, restaurant_data = read_data(current_dir_path,
