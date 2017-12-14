@@ -30,14 +30,15 @@ def read_data(path, airbnb_file_name, restaurant_data_file_name):
     Returns:
         two dataframes, one with airbnb data and the other with the restaurant data
     '''
+    try:
+        airbnb_data_file_path = os.path.join(path, 'Data', airbnb_file_name)
+        restaurant_data_file_path = os.path.join(path, 'Data', restaurant_data_file_name)
 
-    airbnb_data_file_path = os.path.join(path, 'Data', airbnb_file_name)
-    restaurant_data_file_path = os.path.join(path, 'Data', restaurant_data_file_name)
-
-    airbnb_data = pd.read_csv(airbnb_data_file_path, encoding='latin-1')
-    restaurant_data = pd.read_csv(restaurant_data_file_path, encoding='latin-1')
-
-    return airbnb_data, restaurant_data
+        airbnb_data = pd.read_csv(airbnb_data_file_path, encoding='latin-1')
+        restaurant_data = pd.read_csv(restaurant_data_file_path, encoding='latin-1')
+        return airbnb_data, restaurant_data
+    except:
+        return False
 
 
 def oneHotEncode(df, col_names):
@@ -66,7 +67,6 @@ def oneHotEncode(df, col_names):
             temp = pd.DataFrame(temp.toarray(), columns=[(col+"_"+str(i)) for i in df[col].value_counts().index])
             temp = temp.set_index(df.index.values)
             df_1 = pd.concat([df, temp],axis=1)
-
     return df_1
 
 
@@ -108,7 +108,6 @@ def build_linear_regression_model(feature_list):
     airbnb_data_req, restaurant_data = read_data(current_dir_path, 'listings.csv', 'rest_count.csv')
     airbnb_data_req = binaryEncode(airbnb_data_req, BINARY_ENCODE_COLUMNS)
     airbnb_data_req = cleaning_utils.clean_airbnb(airbnb_data_req)
-    # restaurant_data = cleaning_utils.clean_restraunts_geo(restaurant_data)
 
     airbnb_data_req = airbnb_data_req.join(restaurant_data, on="id", how = "inner") #Merging the two datasets on id
     x_train = airbnb_data_req[feature_list]

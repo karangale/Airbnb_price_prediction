@@ -23,7 +23,7 @@ class TestCleaningFunctions(unittest.TestCase):
         row.loc[0] = ["Restaurant Name 11(Buliding Number) Address Zipcode", 
                       "Restaurant Name"]
         address = " 11(Buliding Number) Address Zipcode"
-        add = row.apply(cu.rest_add,axis=1)[0]
+        add = row.apply(cu.rest_add,axis = 1)[0]
         self.assertEqual(add, address)
 
 
