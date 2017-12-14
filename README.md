@@ -64,7 +64,7 @@ http://127.0.0.1:5000
 * Click on 'Submit' button to view the predicted listing price.
 
 <p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG", height="20%", width="20%">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG">
  </p>
  <p align="center">
 
@@ -75,8 +75,8 @@ http://127.0.0.1:5000
 * Click on a particular listing to view more details and find a link to book that particular listing.
 
 <p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/New%20York%20Map.PNG", height="70%", width="70%">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/New%20York%20Map.PNG">
  </p>
  <p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/airbnb_listing.PNG", height="50%", width="50%">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/airbnb_listing.PNG">
 </p>
