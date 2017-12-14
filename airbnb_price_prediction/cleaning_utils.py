@@ -49,27 +49,20 @@ def clean_airbnb(airbnb_data_req):
     airbnb_data_req["price"] = airbnb_data_req["price"].str.replace(',', '')
     airbnb_data_req["price"] = airbnb_data_req["price"].astype(float)
 
-    airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_\
-                                        fee"].str.replace('$', '')
-    airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_\
-                                        fee"].str.replace(',', '')
-    airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_\
-                                        fee"].astype(float)
+    airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_fee"].str.replace('$', '')
+    airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_fee"].str.replace(',', '')
+    airbnb_data_req["cleaning_fee"] = airbnb_data_req["cleaning_fee"].astype(float)
 
-    airbnb_data_req["extra_people"] = airbnb_data_req["extra_\
-                                        people"].str.replace('$', '')
-    airbnb_data_req["extra_people"] = airbnb_data_req["extra_\
-                                        people"].str.replace(',', '')
-    airbnb_data_req["extra_people"] = airbnb_data_req["extra_\
-                                        people"].astype(float)
+    airbnb_data_req["extra_people"] = airbnb_data_req["extra_people"].str.replace('$', '')
+    airbnb_data_req["extra_people"] = airbnb_data_req["extra_people"].str.replace(',', '')
+    airbnb_data_req["extra_people"] = airbnb_data_req["extra_people"].astype(float)
 
     airbnb_data_req["zipcode"] = airbnb_data_req["zipcode"].astype(str)
 
     airbnb_data_req["zipcode"] = airbnb_data_req["zipcode"].apply(splitZip)
     airbnb_data_req = airbnb_data_req[airbnb_data_req['zipcode'] != '1m']
 
-    airbnb_data_req = airbnb_data_req[airbnb_data_req['property_\
-                                        type'] == 'Apartment']
+    airbnb_data_req = airbnb_data_req[airbnb_data_req['property_type'] == 'Apartment']
     airbnb_data_req = airbnb_data_req[airbnb_data_req['country_code'] == "US"]
 
     return airbnb_data_req

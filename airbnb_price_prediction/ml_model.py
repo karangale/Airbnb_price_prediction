@@ -16,7 +16,6 @@ BINARY_ENCODE_COLUMNS = ["host_has_profile_pic", "host_identity_verified",
                          "is_business_travel_ready",
                          "require_guest_profile_picture",
                          "require_guest_phone_verification"]
-
 LINEAR_REGRESSION_FEATURES = ['bedrooms', 'beds', 'accommodates', "rest_count",
                               'number_of_reviews', 'minimum_nights',
                               'maximum_nights']
@@ -35,17 +34,14 @@ def read_data(path, airbnb_file_name, restaurant_data_file_name):
         two dataframes, one with airbnb data and the other with the restaurant
         data
     """
-    try:
-        airbnb_data_file_path = os.path.join(path, 'Data', airbnb_file_name)
-        restaurant_data_file_path = os.path.join(path, 'Data',
-                                                 restaurant_data_file_name)
+    airbnb_data_file_path = os.path.join(path, 'Data', airbnb_file_name)
+    restaurant_data_file_path = os.path.join(path, 'Data',
+                                             restaurant_data_file_name)
 
-        airbnb_data = pd.read_csv(airbnb_data_file_path, encoding='latin-1')
-        restaurant_data = pd.read_csv(restaurant_data_file_path,
-                                      encoding='latin-1')
-        return airbnb_data, restaurant_data
-    except:
-        return False
+    airbnb_data = pd.read_csv(airbnb_data_file_path, encoding='latin-1')
+    restaurant_data = pd.read_csv(restaurant_data_file_path,
+                                  encoding='latin-1')
+    return airbnb_data, restaurant_data
 
 
 def oneHotEncode(df, col_names):
@@ -71,17 +67,18 @@ def oneHotEncode(df, col_names):
     enc = LabelEncoder()
     enc1 = OneHotEncoder()
     df_1 = pd.DataFrame()
-
-    for col in col_names:
-        if df[col].dtypes == 'object':
-            df[col] = pd.Series(enc.fit_transform(df[[col]]), index=df.index)
-            temp = enc1.fit(df[col].values)
-            temp = pd.DataFrame(temp.toarray(), columns=[(col+"_"+str(i)) for
-                                i in df[col].value_counts().index])
-            temp = temp.set_index(df.index.values)
-            df_1 = pd.concat([df, temp], axis=1)
-    return df_1
-
+    try:
+        for col in col_names:
+            if df[col].dtypes == 'object':
+                df[col] = pd.Series(enc.fit_transform(df[[col]]), index=df.index)
+                temp = enc1.fit(df[col].values)
+                temp = pd.DataFrame(temp.toarray(), columns=[(col+"_"+str(i)) for
+                                    i in df[col].value_counts().index])
+                temp = temp.set_index(df.index.values)
+                df_1 = pd.concat([df, temp], axis=1)
+        return df_1
+    except:
+        return False
 
 def binaryEncode(df, col_names):
     """
@@ -121,24 +118,27 @@ def build_linear_regression_model(feature_list):
     Returns:
         A model object with the data fit on the training data
     """
-    current_dir_path = os.getcwd()
-    airbnb_data_req, restaurant_data = read_data(current_dir_path,
-                                                 'listings.csv',
-                                                 'rest_count.csv')
-    airbnb_data_req = binaryEncode(airbnb_data_req, BINARY_ENCODE_COLUMNS)
-    airbnb_data_req = cleaning_utils.clean_airbnb(airbnb_data_req)
+    try:
+        current_dir_path = os.getcwd()
+        airbnb_data_req, restaurant_data = read_data(current_dir_path,
+                                                     'listings.csv',
+                                                     'rest_count.csv')
+        airbnb_data_req = binaryEncode(airbnb_data_req, BINARY_ENCODE_COLUMNS)
+        airbnb_data_req = cleaning_utils.clean_airbnb(airbnb_data_req)
 
-    # Merging the two datasets on id
-    airbnb_data_req = airbnb_data_req.join(restaurant_data, on="id",
-                                           how="inner")
-    x_train = airbnb_data_req[feature_list]
-    y_train = airbnb_data_req['price'].values
+        # Merging the two datasets on id
+        airbnb_data_req = airbnb_data_req.join(restaurant_data, on="id",
+                                               how="inner")
+        x_train = airbnb_data_req[feature_list]
+        y_train = airbnb_data_req['price'].values
 
-    reg = linear_model.LinearRegression()
-    reg.fit(x_train, y_train)
-    y_pred = reg.predict(x_train)
-    print("Linear regression r squared", r2_score(y_train, y_pred), "\n")
-    return reg
+        reg = linear_model.LinearRegression()
+        reg.fit(x_train, y_train)
+        y_pred = reg.predict(x_train)
+        print("Linear regression r squared", r2_score(y_train, y_pred), "\n")
+        return reg
+    except:
+        return False
 
 
 def predict_price(data):
@@ -157,7 +157,3 @@ def predict_price(data):
     """
     model = build_linear_regression_model(LINEAR_REGRESSION_FEATURES)
     return model.predict(data)
-
-
-if __name__ == '__main__':
-    build_linear_regression_model(LINEAR_REGRESSION_FEATURES)
