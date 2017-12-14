@@ -64,7 +64,7 @@ http://127.0.0.1:5000
 * Click on 'Submit' button to view the predicted listing price.
 
 <p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG", height="70%", width="70%">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG", height="20%", width="20%">
  </p>
  <p align="center">
 
