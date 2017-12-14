@@ -22,9 +22,24 @@ git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git
 python setup.py develop
 ```
 
-3. Download the data files from the sources above and put them into the 'Data' folder in downloaded repository.
+3. Download the data files from the sources above and put them into the 'Data' folder in the airbnb_price_prediction folder.
 
-4. Run the visualization by typing the following url into your preferred web browser:
+4. Open Command Prompt as Administrator and navigate to the airbnb_price_prediction folder in the repository.
+
+5. Execute the following commands one by one in the airbnb_prediction folder
+```
+python create_frontpage.py
+```
+
+```
+set FLASK_APP=create_frontpage.py # for Linux/Mac use export instead of set
+```
+
+```
+python -m flask run
+```
+
+6. Run the visualization by typing the following url into your preferred web browser (Tested on Chrome):
 ```
 http://127.0.0.1:5000
 ```
@@ -46,4 +61,7 @@ http://127.0.0.1:5000
  </p>
  <p align="center">
   <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/blob/master/Examples/airbnb_listing.PNG">
+</p>
+<p align="center">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG">
 </p>
