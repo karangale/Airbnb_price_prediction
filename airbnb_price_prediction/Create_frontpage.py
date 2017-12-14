@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, request
+"""Create and run the web page to see the model and visualization."""
+from flask import Flask, render_template, request
 import ml_model as model
 import numpy as np
 import math
@@ -7,37 +8,41 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    '''
-    This is the function for directing to the homepage.
+    """
+    Direct user to the homepage.
+
     This is a GET request by default.
-    '''
+    """
     return render_template('new.html')
 
 
-@app.route("/airbnb-restaurant", methods=['GET'])
+@app.route("/airbnb_restaurant", methods=['GET'])
 def airbnb_restaurant():
-    '''
-    This is the function for directing to restaurant visualization.
+    """
+    Direct user to restaurant visualization.
+
     This is a GET request.
-    '''
-    return render_template('airbnb-restaurant.html')
+    """
+    return render_template('airbnb_restaurant.html')
 
 
 @app.route("/get_model_page", methods=['GET'])
 def get_model_page():
-    '''
-    This is the function for directing to the ML price prediction visualization.
+    """
+    Direct user to the ML price prediction visualization.
+
     This is a GET request.
-    '''
+    """
     return render_template('ML_model.html')
 
 
 @app.route("/ML_model", methods=['GET', 'POST'])
 def render_prediction_module():
-    '''
-    This is the function for directing to the ML price prediction visualization with the predicted value.
+    """
+    Direct to the ML price prediction visualization with the predicted value.
+
     This is a POST request.
-    '''
+    """
     if request.method == 'POST':
         n_rooms = request.form['n_rooms']
         nbeds = request.form['nbeds']
@@ -87,16 +92,18 @@ def render_prediction_module():
             max_nights = 0.0
         else:
             max_nights = float(max_nights)
-    
-    prediction = model.predict_price(np.array([[n_rooms, nbeds, naccommodates, nrestaurants, nreviews, min_nights, max_nights]]))
+
+    prediction = model.predict_price(np.array([[n_rooms, nbeds, naccommodates,
+                                     nrestaurants, nreviews, min_nights,
+                                     max_nights]]))
     prediction_final = prediction[0]
     prediction_final = math.ceil(prediction_final*100)/100
-    return render_template('ML_model.html', n_rooms = n_rooms, nbeds = nbeds, naccommodates = naccommodates, 
-                                            nrestaurants = nrestaurants,  nreviews = nreviews, nrating = nrating,
-                                            min_nights = min_nights, max_nights = max_nights,
-                                            prediction = prediction_final)
+    return render_template('ML_model.html', n_rooms=n_rooms,
+                           nbeds=nbeds, naccommodates=naccommodates,
+                           nrestaurants=nrestaurants,  nreviews=nreviews,
+                           nrating=nrating, min_nights=min_nights,
+                           max_nights=max_nights, prediction=prediction_final)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     app.run()
-
