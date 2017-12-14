@@ -70,15 +70,19 @@ def oneHotEncode(df, col_names):
     try:
         for col in col_names:
             if df[col].dtypes == 'object':
-                df[col] = pd.Series(enc.fit_transform(df[[col]]), index=df.index)
+                df[col] = pd.Series(enc.fit_transform(df[[col]]),
+                                    index=df.index)
                 temp = enc1.fit(df[col].values)
-                temp = pd.DataFrame(temp.toarray(), columns=[(col+"_"+str(i)) for
+                temp = pd.DataFrame(temp.toarray(),
+                                    columns=[(col+"_"+str(i)) for
                                     i in df[col].value_counts().index])
                 temp = temp.set_index(df.index.values)
                 df_1 = pd.concat([df, temp], axis=1)
         return df_1
     except:
+        print("Fail")
         return False
+
 
 def binaryEncode(df, col_names):
     """
@@ -157,3 +161,7 @@ def predict_price(data):
     """
     model = build_linear_regression_model(LINEAR_REGRESSION_FEATURES)
     return model.predict(data)
+
+
+if __name__ == '__main__':
+    build_linear_regression_model(LINEAR_REGRESSION_FEATURES)
