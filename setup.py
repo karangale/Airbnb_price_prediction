@@ -2,7 +2,7 @@
 
 from setuptools import setup
 
-with open("README", 'r') as f:
+with open("README.md", 'r') as f:
     long_description = f.read()
 
 opts = dict(name='airbnb_price_prediction',
@@ -16,7 +16,7 @@ opts = dict(name='airbnb_price_prediction',
             packages=['airbnb_price_prediction'],
             package_data={'Airbnb-price-prediction': ['Data/*.*']},
             install_requires=['flask', 'numpy', 'math', 'os', 'pandas',
-                              'sklearn', 'scipy', 'matplotlib', 'geopy', 're'])
+                              'sklearn', 'scipy', 'matplotlib', 'geopy'])
 
 
 if __name__ == '__main__':
