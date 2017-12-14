@@ -23,9 +23,9 @@ python setup.py install
 ```
 
 3. Download the Airbnb 'listings.csv' file:
-[listings.csv](http://data.insideairbnb.com/united-states/ny/new-york-city/2016-07-02/visualisations/listings.csv)
+[listings.csv.gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-10-02/data/listings.csv.gz)
 
-4. Save it to the data folder in the following location:
+4. Extract the file and save it to the data folder in the following location:
 ```
 uwseds-group-team-star/airbnb_price_prediction/Data
 ```
