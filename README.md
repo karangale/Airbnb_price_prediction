@@ -30,12 +30,12 @@ python setup.py install
 uwseds-group-team-star/airbnb_price_prediction/Data
 ```
 
-4. Open Command Prompt or Terminal as Administrator and navigate to the airbnb_price_prediction folder in the repository.
+5. Open Command Prompt or Terminal as Administrator and navigate to the airbnb_price_prediction folder in the repository.
 ```
 uwseds-group-team-star/airbnb_price_prediction
 ```
 
-5. Execute the following commands one by one in the airbnb_price_prediction folder
+6. Execute the following commands one by one in the airbnb_price_prediction folder
 ```
 python create_frontpage.py
 ```
@@ -52,12 +52,12 @@ export FLASK_APP=create_frontpage.py
 python -m flask run
 ```
 
-6. Run the visualization by typing the following url into your preferred web browser:
+7. Run the visualization by typing the following url into your preferred web browser:
 ```
 http://127.0.0.1:5000
 ```
 
-7. Click on the links on the web page to open that particular module.
+8. Click on the links on the web page to open that particular module.
 
 ## Using the Price Prediction Module:
 * Type in the specified parameters.
