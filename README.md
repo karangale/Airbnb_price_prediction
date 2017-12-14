@@ -17,29 +17,42 @@ The data we are using comes from the [Airbnb website](http://data.insideairbnb.c
 git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git
 ```
 
-2. Run the setup by typing the following:
+2. Open the main 'uwseds-group-team-star folder' and run the setup by typing the following:
 ```
 python setup.py develop
 ```
 
-3. Download the data files from the sources above and put them into the 'Data' folder in the airbnb_price_prediction folder.
+3. Download the Airbnb 'listings.csv' file:
+[listings.csv](http://data.insideairbnb.com/united-states/ny/new-york-city/2016-07-02/visualisations/listings.csv)
 
-4. Open Command Prompt as Administrator and navigate to the airbnb_price_prediction folder in the repository.
+4. Save it to the data folder in the following location:
+```
+uwseds-group-team-star/airbnb_price_prediction/Data
+```
 
-5. Execute the following commands one by one in the airbnb_prediction folder
+4. Open Command Prompt or Terminal as Administrator and navigate to the airbnb_price_prediction folder in the repository.
+```
+uwseds-group-team-star/airbnb_price_prediction
+```
+
+5. Execute the following commands one by one in the airbnb_price_prediction folder
 ```
 python create_frontpage.py
 ```
 
+If you have Windows (Command Prompt):
 ```
-set FLASK_APP=create_frontpage.py # for Linux/Mac use export instead of set
-```
-
-```
+set FLASK_APP=create_frontpage.py
 python -m flask run
 ```
 
-6. Run the visualization by typing the following url into your preferred web browser (Tested on Chrome):
+If you have Linux/Mac (Terminal):
+```
+export FLASK_APP=create_frontpage.py
+python -m flask run
+```
+
+6. Run the visualization by typing the following url into your preferred web browser:
 ```
 http://127.0.0.1:5000
 ```
@@ -48,7 +61,12 @@ http://127.0.0.1:5000
 
 ## Using the Price Prediction Module:
 * Type in the specified parameters.
-* Click on 'Predict Prices' button to view the predicted listing price.
+* Click on 'Submit' button to view the predicted listing price.
+
+<p align="center">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG", height="70%", width="70%">
+ </p>
+ <p align="center">
 
 ## Using the Visual Map:
 * You can choose to zoom in on various clusters of airbnb and restaurant listings by clicking on them.
@@ -57,11 +75,8 @@ http://127.0.0.1:5000
 * Click on a particular listing to view more details and find a link to book that particular listing.
 
 <p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/blob/master/Examples/New%20York%20Map.PNG">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/New%20York%20Map.PNG", height="70%", width="70%">
  </p>
  <p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/blob/master/Examples/airbnb_listing.PNG">
-</p>
-<p align="center">
-  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/ML_Example.PNG">
+  <img src="https://github.com/UWSEDS-aut17/uwseds-group-team-star/raw/master/Examples/airbnb_listing.PNG", height="50%", width="50%">
 </p>
