@@ -113,7 +113,7 @@ def build_linear_regression_model():
 def predict_price(data):
     build_linear_regression_model()
     return reg.predict(data)
-
+ 
 
 if __name__ == '__main__':
     build_linear_regression_model()
