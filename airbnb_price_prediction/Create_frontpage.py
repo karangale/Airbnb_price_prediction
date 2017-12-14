@@ -7,22 +7,37 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
+    '''
+    This is the function for directing to the homepage.
+    This is a GET request by default.
+    '''
     return render_template('new.html')
 
 
 @app.route("/airbnb-restaurant", methods=['GET'])
 def airbnb_restaurant():
+    '''
+    This is the function for directing to restaurant visualization.
+    This is a GET request.
+    '''
     return render_template('airbnb-restaurant.html')
 
 
 @app.route("/get_model_page", methods=['GET'])
 def get_model_page():
+    '''
+    This is the function for directing to the ML price prediction visualization.
+    This is a GET request.
+    '''
     return render_template('ML_model.html')
 
 
 @app.route("/ML_model", methods=['GET', 'POST'])
 def render_prediction_module():
-    
+    '''
+    This is the function for directing to the ML price prediction visualization with the predicted value.
+    This is a POST request.
+    '''
     if request.method == 'POST':
         n_rooms = request.form['n_rooms']
         nbeds = request.form['nbeds']
