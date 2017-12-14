@@ -44,7 +44,7 @@ python -m flask run
 http://127.0.0.1:5000
 ```
 
-5. Click on the links on the web page to open that particular module.
+7. Click on the links on the web page to open that particular module.
 
 ## Using the Price Prediction Module:
 * Type in the specified parameters.
