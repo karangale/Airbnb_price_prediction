@@ -15,7 +15,7 @@ opts = dict(name='airbnb_price_prediction',
             version='0.1.0',
             packages=['airbnb_price_prediction'],
             package_data={'Airbnb-price-prediction': ['Data/*.*']},
-            install_requires=['flask', 'numpy', 'math', 'pandas',
+            install_requires=['flask', 'numpy', 'pandas',
                               'sklearn', 'scipy', 'matplotlib', 'geopy'])
 
 
