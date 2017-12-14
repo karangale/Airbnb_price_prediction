@@ -1,4 +1,4 @@
-# Predicting Airbnb Prices Based on Restaurants Nearby:
+# Predicting Airbnb listing prices based on the presence of restaurants Nearby:
 We are analyzing the effect of restraunts and eateries on Airbnb listings in New York City. We have chosen New York City as it is one of the largest and most popular tourist destinations in the world with a large amount of Airbnb listings.
 
 ## Questions:
