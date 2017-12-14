@@ -1,4 +1,4 @@
 import create_frontpage as cf
 
 
-cf.main()
+cf.main_app_run()

@@ -104,5 +104,7 @@ def render_prediction_module():
                            nrating=nrating, min_nights=min_nights,
                            max_nights=max_nights, prediction=prediction_final)
 
-def main():
+
+def main_app_run():
+    """Run flask."""
     app.run()
