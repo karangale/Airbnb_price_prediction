@@ -14,7 +14,7 @@ The data we are using comes from the [Airbnb website](http://data.insideairbnb.c
 ## Installation:
 1. Clone the git repository to a local location on your machine by downloading the zip file or typing the following in a terminal:
 ```
-git clone https://github.com/UWSEDS-aut17/uwseds-group-team-star.git
+git clone https://github.com/karangale/uwseds-group-team-star.git
 ```
 
 2. Open the main 'uwseds-group-team-star folder' and run the setup by typing the following:
